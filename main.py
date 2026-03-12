@@ -16,7 +16,8 @@ import os
 
 # from dotenv import load_dotenv
 # load_dotenv()
-
+logs = []
+error_message = None
 for i in range(15):
     try:
         conn = psycopg2.connect(
@@ -28,13 +29,18 @@ for i in range(15):
         print("DB connected")
         break
     except psycopg2.OperationalError as e:
+        error_message = "Postgres not ready: "+str(e)
         print(f"Retry DB {i+1}/15", flush=True)
         time.sleep(2)
 else:
+    run_time = datetime.utcnow().isoformat()
+    status = "failed"
+    rows_inserted = 0
+    logs.append((run_time, status, rows_inserted, error_message))
     raise RuntimeError("Postgres not ready.")
 
 today = date.today()
-offsets = [3,4,5,6,7,14,21,28,30,60,90]
+offsets = [3,4,5,6,7,14,21,28,30,60,90,120,150,180,210,240,270,300,330,365]
 checkin_list, checkout_list = [],[]
 for i in offsets:
     checkin = today + timedelta(days=i)
@@ -66,12 +72,21 @@ for checkin,checkout in zip(checkin_list,checkout_list):
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument("--window-size=1920,1080")
     driver = webdriver.Chrome(options=options)
-    driver.get("https://www.google.com")
-    time.sleep(3)
-    driver.get(new_url)
-    print("LOADED: ", new_url, flush=True)
-    time.sleep(3)
-    print("scraping page..")
+    try:
+        driver.get("https://www.google.com")
+        time.sleep(3)
+        driver.get(new_url)
+        print("LOADED: ", new_url, flush=True)
+        time.sleep(3)
+        print("scraping page..")
+    except Exception as e:
+        run_time = datetime.utcnow().isoformat()
+        error_message = str(e)
+        status = "failed"
+        rows_inserted = 0
+        logs.append((run_time, status, rows_inserted, error_message))
+        raise RuntimeError(e)
+        break
 
     count = 0
     while True:
@@ -125,18 +140,39 @@ for checkin,checkout in zip(checkin_list,checkout_list):
 
 vdisplay.stop()
 print("total items scraped:", str(len(names)))
-print(names[-1])
 
-data = list(zip(names,stars,distances,prices,links,scrape_date,checkin_date))
+data = list(zip(scrape_date,checkin_date,names,prices,stars,distances,links))
+rows_inserted = 0
+status = "success"
+error_message = None
+try:
+    with conn.cursor() as cur:
+        cur.executemany(
+            """
+            INSERT INTO bronze.hotel_prices
+            (scrape_date, checkin_date, hotel_name, price, stars, dist_to_haram, link)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """,
+            data
+        )
+        conn.commit()
+        print("rows successfully inserted to database: umrah_db")
+    run_time = datetime.utcnow().isoformat()
+    rows_inserted = len(data)
+    logs.append((run_time, status, rows_inserted, error_message))
+except Exception as e:
+    status = "failed"
+    error_message = str(e)
+    run_time = datetime.utcnow().isoformat()
+    logs.append((run_time, status, rows_inserted, error_message))
 
 with conn.cursor() as cur:
     cur.executemany(
         """
-        INSERT INTO hotel_prices
-        (scrape_date, checkin_date, hotel_name, price, stars, rating, link)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        insert into bronze.scrape_logs
+        (run_time, status, rows_inserted, error_message)
+        values (%s,%s,%s,%s)
         """,
-        data
+        logs
     )
     conn.commit()
-    print("rows successfully inserted to database: umrah_db")
