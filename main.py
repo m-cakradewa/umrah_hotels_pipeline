@@ -74,10 +74,10 @@ for checkin,checkout in zip(checkin_list,checkout_list):
     driver = webdriver.Chrome(options=options)
     try:
         driver.get("https://www.google.com")
-        time.sleep(3)
+        time.sleep(1)
         driver.get(new_url)
         print("LOADED: ", new_url, flush=True)
-        time.sleep(3)
+        time.sleep(1)
         print("scraping page..")
     except Exception as e:
         run_time = datetime.utcnow().isoformat()
@@ -134,9 +134,9 @@ for checkin,checkout in zip(checkin_list,checkout_list):
                 checkin_date.append(checkin)
             break
         count = len(cards)  # langsung list of cards
-    time.sleep(2)
+    time.sleep(.5)
     driver.quit()
-    time.sleep(3)
+    time.sleep(1)
 
 vdisplay.stop()
 print("total items scraped:", str(len(names)))

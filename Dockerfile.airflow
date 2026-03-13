@@ -1,0 +1,27 @@
+FROM apache/airflow:2.9.3
+
+USER root
+WORKDIR /opt/airflow
+
+RUN apt-get update && \
+    apt-get install -y \
+    xvfb \
+    chromium \
+    chromium-driver \
+    fonts-liberation \
+    libnss3 \
+    libxss1 \
+    libasound2 \
+    libgbm1 \
+    libgtk-3-0 \
+    && apt-get clean
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+USER airflow
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENTRYPOINT ["/entrypoint.sh"]
