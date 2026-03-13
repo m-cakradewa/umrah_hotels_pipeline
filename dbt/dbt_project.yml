@@ -1,0 +1,8 @@
+name. umrah_hotels
+version: 1.0
+profile: umrah_hotels
+
+model-paths: ["models"]
+models:
+  umrah_hotels:
+    +materialized: table
