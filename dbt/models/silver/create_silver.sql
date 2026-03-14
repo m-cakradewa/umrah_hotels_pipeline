@@ -1,6 +1,6 @@
 {{ config(
     materialized='table',
-    schema='_silver',
+    schema='silver',
 	alias='hotel_prices'
 ) }}
 
@@ -30,7 +30,7 @@ select
         order by scrape_date desc
     ) as rn
 
-from {{ source('_bronze','hotel_prices') }}
+from {{ source('bronze','hotel_prices') }}
 where trim(hotel_name) <> ''
 
 )

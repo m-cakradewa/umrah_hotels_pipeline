@@ -1,4 +1,4 @@
-name. umrah_hotels
+name: umrah_hotels
 version: 1.0
 profile: umrah_hotels
 
@@ -6,3 +6,10 @@ model-paths: ["models"]
 models:
   umrah_hotels:
     +materialized: table
+    +pre-hook:
+      - "create schema if not exists {{ this.schema }};"
+    silver:
+      +schema: silver
+      +database: null
+    gold:
+      +schema: gold

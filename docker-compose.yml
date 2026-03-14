@@ -22,6 +22,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./:/opt/umrah_hotels_pipeline
+      - ./dbt:/opt/umrah_hotels_pipeline/dbt
     # command: >
     #   bash -c "airflow db init && airflow scheduler & airflow webserver --port 8080"
   # airflow:

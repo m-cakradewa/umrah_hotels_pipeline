@@ -149,7 +149,7 @@ try:
     with conn.cursor() as cur:
         cur.executemany(
             """
-            INSERT INTO bronze.hotel_prices
+            INSERT INTO _bronze.hotel_prices
             (scrape_date, checkin_date, hotel_name, price, stars, dist_to_haram, link)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
             """,
@@ -169,7 +169,7 @@ except Exception as e:
 with conn.cursor() as cur:
     cur.executemany(
         """
-        insert into bronze.scrape_logs
+        insert into _bronze.scrape_logs
         (run_time, status, rows_inserted, error_message)
         values (%s,%s,%s,%s)
         """,

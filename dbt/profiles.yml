@@ -1,0 +1,12 @@
+umrah_hotels:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: umrah_postgres   # nama service di docker-compose
+      user: "{{ env_var('DB_USER') }}"
+      password: "{{ env_var('DB_PASS') }}"
+      port: 5432
+      dbname: "{{ env_var('DB_NAME') }}"
+      schema: " "
+      threads: 1
