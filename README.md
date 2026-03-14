@@ -9,4 +9,4 @@ Hotel prices and availabiliry in Makkah fluctuate significantly throughout the y
 - demand 
 - proximity to religious events
 - booking horizon
-Travel planners often lack a structured overview of price trends across time horizons.<br><br>
+<br>Travel planners often lack a structured overview of price trends across time horizons.<br><br>
