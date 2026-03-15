@@ -81,20 +81,20 @@ Pipeline orchestration using Airflow.
                            |
                            ▼
                     +---------------+
-                    | scrape_hotels|
-                    |   (main.py)  |
+                    | scrape_hotels |
+                    |   (main.py)   |
                     +-------+-------+
                            |
                            ▼
                     +--------------+
-                    | store_bronze|
-                    | PostgreSQL  |
+                    | store_bronze |
+                    | PostgreSQL   |
                     +------+-------+
                            |
                            ▼
                     +---------------+
-                    | run_dbt     |
-                    | create_silver|
+                    | run_dbt       |
+                    | create_silver |
                     +-------+-------+
                            |
                            ▼
