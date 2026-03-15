@@ -83,7 +83,7 @@ Pipeline orchestration using Airflow.
                     +---------------+
                     | scrape_hotels |
                     |   (main.py)   |
-                    +-------+-------+
+                    +------+--------+
                            |
                            ▼
                     +--------------+
@@ -95,7 +95,7 @@ Pipeline orchestration using Airflow.
                     +---------------+
                     | run_dbt       |
                     | create_silver |
-                    +-------+-------+
+                    +------+--------+
                            |
                            ▼
                     +-------------+
@@ -104,8 +104,28 @@ Pipeline orchestration using Airflow.
                     +------+------+
                            |
                            ▼
+                    +-----------------+
+                    | build Streamlit |
+                    |     Webapp      |
+                    +------+----------+
+                           |
+                           ▼
                     +-------------+
                     |     End     |
                     +-------------+
 ---
+# Data Collection Strategy
+The scraper collects hotel data (stars, price per night, location, available date) across multiple time horizons for check-in date.<br>
+### Within a week
+- 3 days
+- 4 days
+- 5 days
+- 6 days
+<br>
+### Within a month
+- 1 week
+- 2 weeks
+- 3 weeks
+- 4 weeks
+<br>
 
