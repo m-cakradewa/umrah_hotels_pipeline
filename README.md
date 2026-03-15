@@ -165,3 +165,14 @@ The dashboard visualizes hotel pricing using a grid layout.
 | Within 1W    |         |         |         |         |
 | Within 1 Mo  |         |         |         |         |
 | Within 4 Mos |         |         |         |         |
+<br>
+### Purpose:
+- help travelers estimate budget requirements
+- compare near-term vs future travel
+- visualize hotel availability trends
+
+---
+
+# Running the Pipeline
+To start:
+> docker compose up --build
