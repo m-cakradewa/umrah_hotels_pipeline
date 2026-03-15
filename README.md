@@ -153,4 +153,15 @@ The scraper collects hotel data (stars, price per night, location, available dat
 ### Gold
 - aggregated views for analytics
 - can either be tables, views, or mix of both
+- metrics: average hotel price, average number of available hotels
+- grouping: stars, time horizon, distance to holy mosque
 
+---
+
+# Dashboard Concept
+The dashboard visualizes hotel pricing using a grid layout.
+| Time horizon | 2 stars | 3 stars | 4 stars | 5 stars |
+|--------------|---------|---------|---------|---------|
+| Within 1W    |         |         |         |         |
+| Within 1 Mo  |         |         |         |         |
+| Within 4 Mos |         |         |         |         |
