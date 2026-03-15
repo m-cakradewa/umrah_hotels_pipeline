@@ -166,7 +166,7 @@ The dashboard visualizes hotel pricing using a grid layout.
 | Within 1 Mo  |         |         |         |         |
 | Within 4 Mos |         |         |         |         |
 <br>
-### Purpose:
+### Purposes
 - help travelers estimate budget requirements
 - compare near-term vs future travel
 - visualize hotel availability trends
