@@ -31,3 +31,46 @@ _____
 Containerization | Docker |
 Dashboarding | Streamlit |
 Scraping | Python |
+_______
+
+# Architecture Diagram
+
+                +----------------------+
+                |  UmrahMe Website     |
+                +----------+-----------+
+                           |
+                           | scraping
+                           ▼
+                    +-------------+
+                    | Python      |
+                    | Scraper     |
+                    +------+------+ 
+                           |
+                           ▼
+                    +-------------+
+                    | PostgreSQL  |
+                    | Bronze      |
+                    +------+------+ 
+                           |
+                           | dbt transformation
+                           ▼
+                    +-------------+
+                    | Silver      |
+                    | Clean Data  |
+                    +------+------+ 
+                           |
+                           | dbt aggregation
+                           ▼
+                    +-------------+
+                    | Gold Views  |
+                    +------+------+ 
+                           |
+                           ▼
+                    +-------------+
+                    | Streamlit   |
+                    | Dashboard   |
+                    +-------------+
+
+
+
+
