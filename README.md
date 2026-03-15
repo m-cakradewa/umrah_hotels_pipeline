@@ -165,7 +165,6 @@ The dashboard visualizes hotel pricing using a grid layout.
 | Within 1W    |         |         |         |         |
 | Within 1 Mo  |         |         |         |         |
 | Within 4 Mos |         |         |         |         |
-<br>
 
 ### Purposes
 - help travelers estimate budget requirements
