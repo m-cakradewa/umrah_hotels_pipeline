@@ -115,17 +115,26 @@ Pipeline orchestration using Airflow.
                     +-------------+
 ---
 # Data Collection Strategy
-The scraper collects hotel data (stars, price per night, location, available date) across multiple time horizons for check-in date.<br>
+The scraper collects hotel data (stars, price per night, location, available date) across multiple time horizons for check-in date.
 ### Within a week
 - 3 days
 - 4 days
 - 5 days
 - 6 days
-<br>
+
 ### Within a month
 - 1 week
 - 2 weeks
 - 3 weeks
 - 4 weeks
-<br>
+
+### Monthly horizon
+- 1 month
+- 2 months
+- 3 months
+- 4 months
+
+### Long-term trend
+- monthly snapshots for the upcoming 12 months
+---
 
