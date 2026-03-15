@@ -143,5 +143,14 @@ The scraper collects hotel data (stars, price per night, location, available dat
 
 ---
 
-
+# Data Layers
+### Bronze
+- raw scraped data
+- newly scraped saved in the same table as new rows
+### Silver
+- cleaned, transformed, and standardized
+- ready to be aggregated
+### Gold
+- aggregated views for analytics
+- can either be tables, views, or mix of both
 
