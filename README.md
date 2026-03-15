@@ -1,6 +1,7 @@
 # Umrah Hotels Data Pipeline
 Automated data pipeline that collects Hotel availability and pricing data for Mecca from UmrahMe, processes the data through a medaillon architecture, and serves aggregated insights for dashboard analytics.<br><br>
 The system helps visualize hotel price trends accross different time horizons and hotel star categories, helping travel planners to estimate accomodation costs for future umrah trips.
+
 ---
 
 # Problem
@@ -12,6 +13,7 @@ Hotel prices and availability in Makkah fluctuate significantly throughout the y
 
 Travel planners often lack a structured overview of price trends across time horizons.<br><br>
 This project creates a pipeline that fetches and processes hotel data daily to real-time price insights.
+
 ---
 
 # Solution
@@ -31,6 +33,7 @@ An automated pipeline that
 Containerization | Docker |
 Dashboarding | Streamlit |
 Scraping | Python |
+
 ---
 
 # Architecture Diagram
@@ -114,6 +117,7 @@ Pipeline orchestration using Airflow.
                     |     End     |
                     +-------------+
 ---
+
 # Data Collection Strategy
 The scraper collects hotel data (stars, price per night, location, available date) across multiple time horizons for check-in date.
 ### Within a week
@@ -136,5 +140,8 @@ The scraper collects hotel data (stars, price per night, location, available dat
 
 ### Long-term trend
 - monthly snapshots for the upcoming 12 months
+
 ---
+
+
 
