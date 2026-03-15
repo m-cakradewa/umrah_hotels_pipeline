@@ -74,25 +74,38 @@ Scraping | Python |
 
 # Airflow DAG
 Pipeline orchestration using Airflow.
-start
-  │
-  ▼
-scrape_hotels
-(main.py)
-  │
-  ▼
-store_bronze
-(PostgreSQL)
-  │
-  ▼
-run_dbt_silver
-(create_silver)
-  │
-  ▼
-run_dbt_gold
-(create_gold)
-  │
-  ▼
-end
 
+                    +-------------+
+                    |    Start    |
+                    +------+------+
+                           |
+                           ▼
+                    +-------------+
+                    | scrape_hotels|
+                    |   (main.py)  |
+                    +------+------+
+                           |
+                           ▼
+                    +-------------+
+                    | store_bronze|
+                    | PostgreSQL  |
+                    +------+------+
+                           |
+                           ▼
+                    +-------------+
+                    | run_dbt     |
+                    | create_silver|
+                    +------+------+
+                           |
+                           ▼
+                    +-------------+
+                    | run_dbt     |
+                    | create_gold |
+                    +------+------+
+                           |
+                           ▼
+                    +-------------+
+                    |     End     |
+                    +-------------+
+---
 
