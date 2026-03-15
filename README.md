@@ -84,8 +84,8 @@ Pipeline orchestration using Airflow.
                            |
                            ▼
                     +---------------+
-                    | scrape_hotels |
-                    |   (main.py)   |
+                    | scrape_data   |
+                    |   (python)    |
                     +------+--------+
                            |
                            ▼
@@ -176,3 +176,9 @@ The dashboard visualizes hotel pricing using a grid layout.
 # Running the Pipeline
 To start:
 > docker compose up --build
+
+Airflow sequence of tasks include:
+1. scraping job
+2. data storage
+3. dbt transformation(s)
+
