@@ -25,7 +25,7 @@ _____
 
 # Tech Stack
 | Component | Tool |
-| --- | --- |
+| ---------- | ---------- |
 | Orchestration | dbt (Data Build Tool) |
 | Transformation | PostgreSQL |
 Containerization | Docker |
