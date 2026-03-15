@@ -24,7 +24,7 @@ An automated pipeline that
 _____
 
 # Tech Stack
-| Component                 | Tool |
+| Component | Tool |
 | ---------- | ---------- |
 | Orchestration | dbt (Data Build Tool) |
 | Transformation | PostgreSQL |
