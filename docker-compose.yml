@@ -1,4 +1,5 @@
 services:
+
   airflow:
     # image: apache/airflow:2.9.3
     build:
@@ -10,10 +11,11 @@ services:
     environment:
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
-      DB_HOST: umrah_postgres
+      DB_HOST: ${DB_HOST}
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
+
       AIRFLOW_USERNAME: ${AIRFLOW_USERNAME}
       AIRFLOW_PASSWORD: ${AIRFLOW_PASSWORD}
     env_file:
@@ -23,69 +25,22 @@ services:
       - ./airflow/logs:/opt/airflow/logs
       - ./:/opt/umrah_hotels_pipeline
       - ./dbt:/opt/umrah_hotels_pipeline/dbt
-    # command: >
-    #   bash -c "airflow db init && airflow scheduler & airflow webserver --port 8080"
-  # airflow:
-  #   image: apache/airflow:2.9.3
-  #   container_name: airflow
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     AIRFLOW__CORE__EXECUTOR: SequentialExecutor
-  #     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-  #   volumes:
-  #     - ./airflow/dags:/opt/airflow/dags
-  #     - ./airflow/logs:/opt/airflow/logs
-  #     - ./:/opt/umrah_hotels_pipeline
-  #   command: >
-  #     bash -c "
-  #     airflow db migrate &&
-  #     airflow users create \
-  #     --username dimas \
-  #     --password dimas \
-  #     --firstname admin \
-  #     --lastname admin \
-  #     --role Admin \
-  #     --email admin@example.com &&
-  #     airflow webserver --port 8080
-  #     "
-  # airflow-scheduler:
-  #   image: apache/airflow:2.9.3
-  #   container_name: airflow_scheduler
-  #   depends_on:
-  #     - airflow
-  #   environment:
-  #     AIRFLOW__CORE__EXECUTOR: SequentialExecutor
-  #     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-  #   volumes:
-  #     - ./airflow/dags:/opt/airflow/dags
-  #     - ./airflow/logs:/opt/airflow/logs
-  #     - ./:/opt/umrah_hotels_pipeline
-  #   command: airflow scheduler
-  db:
-    image: postgres:15
-    container_name: umrah_postgres
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASS}
-    env_file:
-      - ./.env
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5433:5432"
-  # scraper:
-  #   build: .
-  #   container_name: umrah_scraper
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     DB_HOST: ${DB_HOST}
-  #     DB_NAME: ${DB_NAME}
-  #     DB_USER: ${DB_USER}
-  #     DB_PASS: ${DB_PASS}
 
-volumes:
-  pgdata:
+
+#   db:
+#     image: postgres:15
+#     container_name: umrah_postgres
+#     environment:
+#       POSTGRES_DB: ${DB_NAME}
+#       POSTGRES_USER: ${DB_USER}
+#       POSTGRES_PASSWORD: ${DB_PASS}
+#     env_file:
+#       - ./.env
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+#       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+#     ports:
+#       - "5433:5432"
+
+# volumes:
+#   pgdata:

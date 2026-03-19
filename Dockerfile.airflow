@@ -5,6 +5,7 @@ WORKDIR /opt/airflow
 
 RUN apt-get update && \
     apt-get install -y \
+    postgresql-client \
     xvfb \
     chromium \
     chromium-driver \

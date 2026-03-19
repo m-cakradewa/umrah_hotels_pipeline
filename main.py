@@ -18,26 +18,7 @@ import os
 # load_dotenv()
 logs = []
 error_message = None
-for i in range(15):
-    try:
-        conn = psycopg2.connect(
-            host=os.getenv("DB_HOST", "db"),
-            dbname=os.getenv("DB_NAME"),
-            user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASS")
-        )
-        print("DB connected")
-        break
-    except psycopg2.OperationalError as e:
-        error_message = "Postgres not ready: "+str(e)
-        print(f"Retry DB {i+1}/15", flush=True)
-        time.sleep(2)
-else:
-    run_time = datetime.utcnow().isoformat()
-    status = "failed"
-    rows_inserted = 0
-    logs.append((run_time, status, rows_inserted, error_message))
-    raise RuntimeError("Postgres not ready.")
+
 
 today = date.today()
 offsets = [3,4,5,6,7,14,21,28,30,60,90,120,150,180,210,240,270,300,330,365]
@@ -144,7 +125,29 @@ print("total items scraped:", str(len(names)))
 data = list(zip(scrape_date,checkin_date,names,prices,stars,distances,links))
 rows_inserted = 0
 status = "success"
+
 error_message = None
+for i in range(15):
+    try:
+        conn = psycopg2.connect(
+            host=os.getenv("DB_HOST"),
+            dbname=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASS"),
+            sslmode="require"
+        )
+        print("DB connected")
+        break
+    except psycopg2.OperationalError as e:
+        error_message = "Postgres not ready: "+str(e)
+        print(f"Retry DB {i+1}/15", flush=True)
+        time.sleep(2)
+else:
+    run_time = datetime.utcnow().isoformat()
+    status = "failed"
+    rows_inserted = 0
+    logs.append((run_time, status, rows_inserted, error_message))
+    raise RuntimeError("Postgres not ready.")
 try:
     with conn.cursor() as cur:
         cur.executemany(
@@ -176,3 +179,4 @@ with conn.cursor() as cur:
         logs
     )
     conn.commit()
+    conn.close()
