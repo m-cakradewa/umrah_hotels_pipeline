@@ -63,14 +63,5 @@ default_args = {
     'owner': 'airflow',
     'start_date': datetime(2026, 3, 17),
 }
-with DAG('gold_only_dag', default_args=default_args,
-         schedule_interval=None,
-         template_searchpath=['/opt/umrah_hotels_pipeline/dbt/models/gold']
-         ) as dag:
-    run_gold = PostgresOperator(
-        task_id='run_gold_sql',
-        postgres_conn_id='run_gold_sql',  # connection yg sudah di Airflow
-        sql='/opt/umrah_hotels_pipeline/dbt/models/gold/base_table.sql'
-    )
 
 

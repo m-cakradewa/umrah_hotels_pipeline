@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Perspective</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            background-color: #1a1a2e; /* Deep Navy */
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #1a1a2e;
+        }
+        .header-bar {
+            height: 8px;
+            width: 100%;
+            background-color: #ffd700; /* Gold Accent */
+        }
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            padding: 40px 60px;
+            gap: 40px;
+        }
+        .left-column {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right-column {
+            flex: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #ffd700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #a5b4fc; /* Light Indigo/Blue for contrast */
+            margin-bottom: 40px;
+            font-weight: 400;
+            border-left: 4px solid #0f4c75;
+            padding-left: 20px;
+        }
+        .card {
+            background-color: #16213e; /* Slightly lighter navy */
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0f4c75; /* Teal Accent */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .card p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        .icon-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .icon-box i {
+            color: #ffd700;
+            font-size: 1.5rem;
+        }
+        .icon-box span {
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .decorative-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px dashed #0f4c75;
+            opacity: 0.3;
+            animation: spin 60s linear infinite;
+        }
+        .image-container {
+            width: 100%;
+            height: 100%;
+            background-color: #16213e;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #2d3748;
+        }
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ffd700;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            color: #a5b4fc;
+            margin-top: 10px;
+        }
+        @keyframes spin { 
+            100% { transform: rotate(360deg); } 
+        }
+        .data-viz-mock {
+            width: 80%;
+            height: 150px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .bar {
+            width: 100%;
+            background-color: #0f4c75;
+            border-radius: 4px 4px 0 0;
+            opacity: 0.7;
+        }
+        .bar.highlight {
+            background-color: #ffd700;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="header-bar"></div>
+<div class="content-wrapper">
+<!-- Left Column: Text Content -->
+<div class="left-column">
+<p style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: #ffd700; margin-bottom: 10px; font-weight: 700;">Business Perspective</p>
+<h1>Guiding Umrah Travelers</h1>
+<h2>Finding the Right Hotel at the Right Time</h2>
+<div class="card">
+<div class="icon-box">
+<i class="fas fa-kaaba"></i>
+<span>The Mission</span>
+</div>
+<p>We act as a specialized travel agency for Muslim travelers, focusing on the spiritual journey of Umrah to Makkah. Our goal is to simplify the complex accommodation landscape.</p>
+</div>
+<div class="card" style="border-left-color: #ffd700;">
+<div class="icon-box">
+<i class="fas fa-chart-line"></i>
+<span>The Strategy</span>
+</div>
+<p>We move beyond static "today's price" offers. By providing visibility on price trends and availability across different time windows, we empower travelers to choose the optimal travel dates.</p>
+</div>
+</div>
+<!-- Right Column: Visual/Conceptual Representation -->
+<div class="right-column">
+<div class="decorative-circle"></div>
+<div class="image-container">
+<!-- Conceptual visual for "Time vs Price" -->
+<div class="stat-item">
+<p class="stat-number"><i class="fas fa-search-dollar"></i></p>
+<p class="stat-label">Price &amp; Availability Visibility</p>
+</div>
+<div class="data-viz-mock">
+<div class="bar" style="height: 40%;"></div>
+<div class="bar" style="height: 60%;"></div>
+<div class="bar" style="height: 30%;"></div>
+<div class="bar highlight" style="height: 85%;"></div> <!-- Optimal Choice -->
+<div class="bar" style="height: 50%;"></div>
+<div class="bar" style="height: 70%;"></div>
+</div>
+<p style="margin-top: 15px; font-size: 0.9rem; color: #cbd5e0; text-align: center;">Smart Window Selection</p>
+</div>
+</div>
+</div>
+<!-- Footer / Branding -->
+<div style="position: absolute; bottom: 30px; left: 60px; font-size: 0.8rem; color: #4b5563;">
+<p>Umrah Hotel Booking Data Pipeline • Slide 1</p>
+</div>
+</div>
+<div class="slide-container">
+<div class="header-bar"></div>
+<div class="main-content">
+<!-- Left Column: Title & Chart -->
+<div class="left-col">
+<p style="color: #ff922b; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px;">The Challenge</p>
+<h1>Volatile Prices &amp; Planning Gaps</h1>
+<p class="subtitle">Makkah's hospitality market is unpredictable, creating a lose-lose situation for uninformed travelers and agencies.</p>
+<div class="chart-wrapper">
+<span class="chart-label">Price Variance: +200%</span>
+<canvas id="volatilityChart"></canvas>
+</div>
+</div>
+<!-- Right Column: Problem Cards -->
+<div class="right-col">
+<!-- Card 1: Volatility -->
+<div class="problem-card volatility">
+<div class="card-icon" style="color: #ff6b6b;">
+<i class="fas fa-arrow-trend-up"></i>
+</div>
+<div class="card-content">
+<h3>Extreme Price Fluctuations</h3>
+<p>Hotel prices in Makkah change drastically every day based on Islamic calendar events and demand. What costs $100 today might cost $500 next week.</p>
+</div>
+</div>
+<!-- Card 2: Customer Pain -->
+<div class="problem-card customer">
+<div class="card-icon" style="color: #ff922b;">
+<i class="fas fa-user-clock"></i>
+</div>
+<div class="card-content">
+<h3>Customer Planning Struggles</h3>
+<p>Without visibility, travelers either miss the best booking windows or end up overpaying significantly. Advance planning becomes a gamble rather than a strategy.</p>
+</div>
+</div>
+<!-- Card 3: Agency Risk -->
+<div class="problem-card agency">
+<div class="card-icon" style="color: #ffd700;">
+<i class="fas fa-triangle-exclamation"></i>
+</div>
+<div class="card-content">
+<h3>Agency Profitability Risk</h3>
+<p>As a travel agency, blind spots in data mean we fail to optimize package pricing. We risk lower margins or unsold inventory by not anticipating market shifts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Umrah Hotel Booking Data Pipeline • Slide 2</p>
+</div>
+</div>
+<script>
+        // Chart.js Configuration for Volatility Line Chart
+        const ctx = document.getElementById('volatilityChart').getContext('2d');
+        
+        // Generate a volatile dataset
+        const dataPoints = [120, 135, 125, 180, 250, 400, 380, 200, 150, 160, 220, 310, 450, 180, 140];
+        const labels = Array.from({length: 15}, (_, i) => `Day ${i+1}`);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Avg. Room Price (SAR)',
+                    data: dataPoints,
+                    borderColor: '#ff6b6b',
+                    backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#1a1a2e',
+                    pointBorderColor: '#ff6b6b',
+                    pointRadius: 4,
+                    tension: 0.3, // Slight curve but jagged enough to look volatile
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false, // Hide X axis labels for cleaner look
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        display: true,
+                        grid: {
+                            color: '#2d3748',
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            color: '#a0aec0',
+                            callback: function(value) { return '$' + value; }
+                        }
+                    }
+                },
+                animation: {
+                    duration: 0 // Disable animation for static export/display stability
+                }
+            }
+        });
+    </script>
+<div class="slide-container">
+<div class="header-bar"></div>
+<div class="main-content">
+<!-- Title Section -->
+<div class="header-section">
+<span class="section-tag">Technical Approach</span>
+<h1>Daily Data Pipeline &amp; <span class="highlight-text">Decision Dashboard</span></h1>
+</div>
+<!-- Process Diagram -->
+<div class="process-container">
+<!-- Connector Line -->
+<div class="process-line">
+<div class="process-line-fill"></div>
+</div>
+<!-- Step 1: Ingest -->
+<div class="step-card">
+<span class="step-number">01</span>
+<div class="step-icon-wrapper">
+<i class="fas fa-cloud-download-alt"></i>
+</div>
+<h3 class="step-title">Fetch &amp; Ingest</h3>
+<p class="step-desc">Automated daily scraping of hotel websites for raw price and room data.</p>
+<div class="feature-list">
+<p class="feature-item"><i class="fas fa-check"></i> <span>Daily scheduled runs</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Capture 3-5 star tiers</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Raw data storage</span></p>
+</div>
+</div>
+<!-- Step 2: Process -->
+<div class="step-card">
+<span class="step-number">02</span>
+<div class="step-icon-wrapper">
+<i class="fas fa-cogs"></i>
+</div>
+<h3 class="step-title">Transform &amp; Store</h3>
+<p class="step-desc">Cleanse data anomalies, structure schemas, and organize into a reliable data warehouse.</p>
+<div class="feature-list">
+<p class="feature-item"><i class="fas fa-check"></i> <span>Data cleaning</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Schema validation</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Historical indexing</span></p>
+</div>
+</div>
+<!-- Step 3: Serve -->
+<div class="step-card" style="border-color: #ffd700; background-color: #1e2542;">
+<span class="step-number">03</span>
+<div class="step-icon-wrapper" style="border-color: #ffd700;">
+<i class="fas fa-chart-pie" style="color: #ffd700;"></i>
+</div>
+<h3 class="step-title" style="color: #ffd700;">Decision Dashboard</h3>
+<p class="step-desc">Interactive visualization for comparing prices and identifying optimal booking windows.</p>
+<div class="feature-list">
+<p class="feature-item"><i class="fas fa-check"></i> <span>Price vs. Star Rating</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Booking Horizon Analysis</span></p>
+<p class="feature-item"><i class="fas fa-check"></i> <span>Availability Trends</span></p>
+</div>
+</div>
+</div>
+<!-- Bottom Outcome Banner -->
+<div class="outcome-banner">
+<p class="outcome-label">Key Outcome</p>
+<p class="outcome-text">Timely visibility that reduces missed offers and empowers users to plan cost-effective spiritual journeys.</p>
+</div>
+</div>
+<div class="footer">
+<p>Umrah Hotel Booking Data Pipeline • Slide 3</p>
+</div>
+</div>
+<div class="slide-container">
+<div class="header-bar"></div>
+<div class="main-content">
+<!-- Header -->
+<div class="header-section">
+<span class="section-tag">Value Proposition</span>
+<h1>Project Impacts &amp; Real-World Benefits</h1>
+</div>
+<!-- Split Layout: Customer vs Agency -->
+<div class="impacts-container">
+<!-- Customer Card -->
+<div class="impact-card customer">
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-users"></i>
+</div>
+<div>
+<span class="card-subtitle">For The</span>
+<div class="card-title">Traveler</div>
+</div>
+</div>
+<ul class="benefits-list">
+<li class="benefit-item">
+<i class="fas fa-check-circle list-bullet"></i>
+<span>Make informed decisions based on <strong>real historical data</strong></span>
+</li>
+<li class="benefit-item">
+<i class="fas fa-check-circle list-bullet"></i>
+<span>Find <strong>better timing</strong> for booking to align with budget</span>
+</li>
+<li class="benefit-item">
+<i class="fas fa-check-circle list-bullet"></i>
+<span><strong>Avoid overpaying</strong> by identifying price dips</span>
+</li>
+</ul>
+</div>
+<!-- Agency Card -->
+<div class="impact-card agency">
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<div>
+<span class="card-subtitle">For The</span>
+<div class="card-title">Travel Agency</div>
+</div>
+</div>
+<ul class="benefits-list">
+<li class="benefit-item">
+<i class="fas fa-bolt list-bullet"></i>
+<span>Reduce <strong>manual research</strong> time significantly</span>
+</li>
+<li class="benefit-item">
+<i class="fas fa-bolt list-bullet"></i>
+<span>Improve <strong>pricing strategy</strong> for package offers</span>
+</li>
+<li class="benefit-item">
+<i class="fas fa-bolt list-bullet"></i>
+<span>Deliver superior, <strong>data-driven recommendations</strong></span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Sample Insights Section -->
+<div class="insights-section">
+<div class="insights-title-block">
+<h2>Sample<br/>Insights</h2>
+<p>Derived from Pipeline</p>
+</div>
+<!-- Insight 1 -->
+<div class="data-insight">
+<div class="stat-highlight cheap">
+                    4★ &lt; 3★
+                </div>
+<div class="insight-text">
+<p>Unexpected Value:</p>
+<p>4-star hotels can be cheaper than 3-stars during last-minute bookings.</p>
+</div>
+</div>
+<!-- Insight 2 -->
+<div class="data-insight">
+<div class="stat-highlight surge">
+                    20x
+                </div>
+<div class="insight-text">
+<p>Peak Volatility:</p>
+<p>Prices can surge up to 20 times higher during peak religious seasons.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Umrah Hotel Booking Data Pipeline • Slide 4</p>
+</div>
+</div>
+</body>
+</html>
